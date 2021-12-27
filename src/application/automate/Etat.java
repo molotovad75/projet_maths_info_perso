@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Etat {
 	private boolean initial, terminal;
 	private int numero;
-	private ArrayList<Transition> transition;
+	private ArrayList<Transition> transition_entrantes;
 	private ArrayList<Etat> predecceseur;
 	
 	public Etat(int numero, boolean initial, boolean terminal) {
 		this.setTerminal(terminal);
 		this.setInitial(initial);
 		this.setNumero(numero);
-		this.transition=new ArrayList<Transition>();
+		this.transition_entrantes=new ArrayList<Transition>();
 	}
 
 	public int getNumero() {
@@ -39,9 +39,9 @@ public class Etat {
 		this.terminal = terminal;
 	}
 	
-	public ArrayList<Transition> getTransition(){
+	public ArrayList<Transition> getTransition_entrantes(){
 		
-		return transition;
+		return transition_entrantes;
 	}
 
 	public ArrayList<Etat> getPredecceseur() {

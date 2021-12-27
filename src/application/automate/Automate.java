@@ -47,14 +47,21 @@ public class Automate {
 	public String [][] affichage_automate() {
 		String tab[][]=new String[liste_etat.size()][nb_lettre_alphabet];
 		for (int j = 0; j < nb_lettre_alphabet; j++) {
-			for (int i = 0; i < liste_etat.size(); i++) {
-				tab[i][j]="Etat :"+i+"\n Lettre de l'alphabet : "+ Transition.getSymbole_alphabet()[j]+" Etat acceptant : "+ etat_acceptant.getTransition().getSymbole_alphabet();
-				//Trouver un moyen de faire apparaitre tous les états acceptants.
+			// i est inférieur à la taille de la liste d'états et t est inférieur aux nombres de transitions entrantes dans notre état acceptant pour un état à l'indice i.
+			for (int i = 0, i2=0; i < liste_etat.size() && i2< etat_acceptant.size() ; i++, i2++) {
+				for (int t=0; t<liste_etat.get(i).getTransition_entrantes().size(); t++) {
+					if(liste_etat.get(i).getTransition_entrantes().get(t).getSymbole_alphabet()==etat_acceptant.get(i2).getTransition_entrantes().get(t).getSymbole_alphabet() && liste_etat.get(i).getTransition_entrantes().get(t).getSymbole_alphabet()[j]==Transition.getSymbole_alphabet_static()[j]) {
+						tab[i][j]="Etat :"+i+"\n Lettre de l'alphabet : "+ Transition.getSymbole_alphabet_static()[j]+" Etat acceptant : "+ etat_acceptant.get(i2).getNumero();
+						//Trouver un moyen de faire apparaitre tous les états acceptants.
+					}
+				}
 			}
 		}
 		return tab;
 		
 	}
+	
+	
 	
 	//**********************************************************************************************
 

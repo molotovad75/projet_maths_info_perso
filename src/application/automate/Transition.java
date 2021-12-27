@@ -10,7 +10,10 @@ public class Transition {
 		Transition.symbole_alphabet=symbole_alphabet;
 	}
 	
-	public static String [] getSymbole_alphabet() {
+	public String [] getSymbole_alphabet() {
+		return symbole_alphabet;
+	}
+	public static String [] getSymbole_alphabet_static() {
 		return symbole_alphabet;
 	}
 	
