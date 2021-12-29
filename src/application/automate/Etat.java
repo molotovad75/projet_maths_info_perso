@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class Etat {
 	private boolean initial, terminal;
 	private int numero;
-	private ArrayList<Transition> transition_entrantes;
+	private ArrayList<Transition> transition_entrantes,transition_sortantes;
 	private ArrayList<Etat> predecceseur;
+	private boolean acceptant;
 	
 	public Etat(int numero, boolean initial, boolean terminal) {
 		this.setTerminal(terminal);
@@ -50,6 +51,22 @@ public class Etat {
 
 	public void setPredecceseur(ArrayList<Etat> predecceseur) {
 		this.predecceseur = predecceseur;
+	}
+
+	public ArrayList<Transition> getTransition_sortantes() {
+		return transition_sortantes;
+	}
+
+	public void setTransition_sortantes(ArrayList<Transition> transition_sortantes) {
+		this.transition_sortantes = transition_sortantes;
+	}
+
+	public boolean isAcceptant() {
+		return acceptant;
+	}
+
+	public void setAcceptant(boolean acceptant) {
+		this.acceptant = acceptant;
 	}
 	
 	
